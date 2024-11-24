@@ -30,15 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'config'
-]
+from decouple import config
+INSTALLED_APPS = config('INSTALLED_APPS').split(',')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
